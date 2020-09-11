@@ -2,20 +2,20 @@ kind: pipeline
 name: default
 
 steps:
-    #- name: test
-    #  image: python
-    #  commands:
-    #    - pip install -r requirements.txt
-    #    - pytest
-    #- name: publish
-    #  image: plugins/docker
-    #  settings:
-    #    repo: mneiding/drone_ci_test
-    #    tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
-    #    username:
-    #        from_secret: DOCKERHUB_USERNAME
-    #    password:
-    #        from_secret: DOCKERHUB_PASSWORD
+    - name: test
+      image: python
+      commands:
+        - pip install -r requirements.txt
+        - pytest
+    - name: publish
+      image: plugins/docker
+      settings:
+        repo: mneiding/drone_ci_test
+        tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
+        username:
+            from_secret: DOCKERHUB_USERNAME
+        password:
+            from_secret: DOCKERHUB_PASSWORD
     - name: notify
       image: plugins/webhook
       settings:
