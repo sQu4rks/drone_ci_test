@@ -19,7 +19,7 @@ steps:
     - name: notify
       image: plugins/webhook
       settings:
-        urls:  https://webhook.site/dc3531af-5998-4a5e-b105-37605df9663f 
+        urls: https://webexapis.com/v1/messages 
         content_type: application/json
         token_value:
             from_secret: TOKEN
