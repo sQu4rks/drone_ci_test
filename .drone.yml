@@ -27,7 +27,7 @@ steps:
         headers:
             Authorization: "Bearer $WEBEX_TOKEN"
         template: |
-        {
-            "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl"
-            "markdown": "Hello from the build"
-        }
+            {
+                "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl"
+                "markdown": "Hello from the build"
+            }
