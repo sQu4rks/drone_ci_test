@@ -17,14 +17,10 @@ steps:
         password:
             from_secret: DOCKERHUB_PASSWORD
     - name: notify
-      image: idcooldi/drone-webhook
-      settings:
-        urls: https://webexapis.com/v1/messages
-        content_type: application/json
-        bearer:
-            from_secret: TOKEN
-        template: |
-            {
-                "markdown": "Status: Build {{ build.number }} was {{ build.status }}"
-                "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl"
-            }
+      image: ciscosso/drone-webex-team
+      pull: true
+      room: "Drone Pipe Test"
+      access_token:
+        from_secret: TOKEN
+      when:
+        status: [ changed, failure, success ]
