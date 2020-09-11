@@ -27,5 +27,5 @@ steps:
         template: |
             {
                 "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl",
-                "markdown": "Build #{{ build.number }} for {{ repo.name }} finished with status {{ build.status }} \n* **Commit:** {{ build.commit }} \n* **Author:** {{ build.author }}"
+                "markdown": "Build #{{ build.number }} for *{{repo.owner}}/{{ repo.name }}* finished with status {{ build.status }} \n* **Commit:** {{ build.commit }} \n* **Author:** {{ build.author }}"
             }
