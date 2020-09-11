@@ -10,7 +10,7 @@ steps:
     - name: publish
       image: plugins/docker
       settings:
-        repo: squ4rks/drone_ci_test
+        repo: mneiding/drone_ci_test
         tags: [ "${DRONE_COMMIT_SHA:0:7}","latest" ]
         username:
             from_secret: DOCKERHUB_USERNAME
