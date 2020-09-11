@@ -19,7 +19,12 @@ steps:
     - name: notify
       image: plugins/webhook
       settings:
-        urls: https://webexapis.com/v1/webhooks/incoming/$TOKEN
+        urls: https://webexapis.com/v1/messages
         content_type: application/json
+        headers:
+            Authorization: "Token ${TOKEN}"
         template: |
-            {"markdown": "Status: Build {{ build.number }} was {{ build.status }}"}
+            {
+                "markdown": "Status: Build {{ build.number }} was {{ build.status }}"
+                "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl"
+            }
