@@ -18,15 +18,14 @@ steps:
     #        from_secret: DOCKERHUB_PASSWORD
     - name: notify
       image: plugins/webhook
-      secrets: [TOKEN]
+      environment:
+        WEBEX_TOKEN:
+            from_secret: TOKEN
       settings:
         urls:  https://webhook.site/dc3531af-5998-4a5e-b105-37605df9663f 
         content_type: application/json
-        environment:
-            WEBEX_TOKEN:
-                from_secret: TOKEN
         headers:
-            Authorization=Bearer ${TOKEN}
+            Authorization=Bearer ${WEBEX_TOKEN}
         template: |
             {
                 "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vOWY4ZmQwNzAtZjM1YS0xMWVhLThiMDktZDE1MjI0YTkyNjZl"
